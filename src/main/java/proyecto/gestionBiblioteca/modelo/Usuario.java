@@ -36,8 +36,10 @@ public class Usuario implements Serializable{
 	private String telefono;
 	private String password;
 	private String direccion;
-	private Date fechaRegistro;
-	private Boolean activo;
+	@Builder.Default
+	private Date fechaRegistro = new Date();
+	@Builder.Default
+	private Boolean activo = Boolean.FALSE;
 	
 	@ManyToOne
 	@JoinColumn(name = "fkRoles")
