@@ -77,23 +77,6 @@
 											placeholder="658 799 8941" /> <label
 											for="phone">Telefono</label>
 									</div>
-									<div class="form-floating form-floating-outline mb-6">
-										<select th:field="*{fkRoles}" id="role" class="form-control">
-											<option value="">Seleccione el rol...</option>
-											<option th:each="role: ${roles}" th:value="${role.idRol}" th:text="${role.nombreRol}"></option>
-										</select>
-										<label for="role">Rol</label>
-									</div>
-									<div class=" mb-6 form-check form-switch">
-										<input th:checked="*{activo}"
-											   name="activo"
-											   type="checkbox"
-											   class="form-check-input"
-											   id="active"
-											   th:value="*{activo}"
-										/>
-										<label for="active" class="form-check-label">Activo</label>
-									</div>
 									<input type="hidden" th:field="*{idUsuario}">
 
 									<button type="submit" class="btn btn-primary">Send</button>

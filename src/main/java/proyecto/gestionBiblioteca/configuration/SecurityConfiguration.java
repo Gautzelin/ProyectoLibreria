@@ -23,7 +23,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
-                        .requestMatchers("/", "/nuevoUsuario", "/libro/lista", "/assets/**", "/40*")
+                        .requestMatchers("/", "/nuevoUsuario","/guardarUsuario", "/libro/lista", "/assets/**", "/40*")
                         .permitAll()
                         .requestMatchers("/*","/**")
                         .hasAuthority("ADMINISTRADOR")
