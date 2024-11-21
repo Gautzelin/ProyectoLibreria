@@ -2,7 +2,7 @@
 <!doctype html>
 
 <html xmlns:th="http://www.thymeleaf.org"
-
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
   data-template="vertical-menu-template-free">
   <head>
     <meta charset="utf-8" />
@@ -53,7 +53,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="/" class="app-brand-link">
               <span class="app-brand-logo demo me-1">
                 <span style="color: var(--bs-primary)">
                   <svg width="30" height="24" viewBox="0 0 250 196" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,9 @@
 
           <ul class="menu-inner py-1">
             <!-- My Menu -->
-            <li class="menu-item">
+            <li class="menu-item"
+                sec:authorize="hasAuthority('ADMINISTRADOR')"
+            >
               <a
                       href="/lista"
                       target="_self"
@@ -137,7 +139,9 @@
                 <div data-i18n="Usuarios">Usuarios</div>
               </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item"
+                sec:authorize="hasAuthority('ADMINISTRADOR')"
+            >
               <a
                       href="/roles"
                       target="_self"
