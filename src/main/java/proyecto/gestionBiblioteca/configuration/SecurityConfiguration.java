@@ -23,10 +23,13 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
-                        .requestMatchers("/nuevoUsuario")
+                        .requestMatchers("/", "/nuevoUsuario", "/libro/lista", "/assets/**")
                         .permitAll()
+                        .requestMatchers("/*","/**")
+                        .hasAuthority("ADMINISTRADOR")
                         .anyRequest()
-                        .authenticated())
+                        .authenticated()
+                )
                 .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer
                         .loginPage("/login")
                         .loginProcessingUrl("/login")

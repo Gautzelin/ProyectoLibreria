@@ -14,7 +14,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" th:href="@{../assets/img/favicon/favicon.ico}" />
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon/favicon.ico}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,26 +23,26 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
       rel="stylesheet" />
 
-    <link rel="stylesheet" th:href="@{../assets/vendor/fonts/remixicon/remixicon.css}" />
+    <link rel="stylesheet" th:href="@{/assets/vendor/fonts/remixicon/remixicon.css}" />
 
     <!-- Menu waves for no-customizer fix -->
-    <link rel="stylesheet" th:href="@{../assets/vendor/libs/node-waves/node-waves.css}" />
+    <link rel="stylesheet" th:href="@{/assets/vendor/libs/node-waves/node-waves.css}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" th:href="@{../assets/vendor/css/core.css}" class="template-customizer-core-css" />
-    <link rel="stylesheet" th:href="@{../assets/vendor/css/theme-default.css}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" th:href="@{../assets/css/demo.css}" />
+    <link rel="stylesheet" th:href="@{/assets/vendor/css/core.css}" class="template-customizer-core-css" />
+    <link rel="stylesheet" th:href="@{/assets/vendor/css/theme-default.css}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" th:href="@{/assets/css/demo.css}" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" th:href="@{../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}" />
+    <link rel="stylesheet" th:href="@{/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script th:src="@{../assets/vendor/js/helpers.js}"></script>
+    <script th:src="@{/assets/vendor/js/helpers.js}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script th:src="@{../assets/js/config.js}"></script>
+    <script th:src="@{/assets/js/config.js}"></script>
   </head>
 
   <body>
@@ -132,7 +132,7 @@
                 sec:authorize="hasAuthority('ADMINISTRADOR')"
             >
               <a
-                      href="/lista"
+                      href="/usuario/lista"
                       target="_self"
                       class="menu-link">
                 <i class="menu-icon tf-icons ri-user-2-fill"></i>
@@ -143,7 +143,7 @@
                 sec:authorize="hasAuthority('ADMINISTRADOR')"
             >
               <a
-                      href="/roles"
+                      href="/rol/lista"
                       target="_self"
                       class="menu-link">
                 <i class="menu-icon tf-icons ri-key-2-fill"></i>
@@ -152,11 +152,20 @@
             </li>
             <li class="menu-item">
               <a
-                      href="/libros"
+                      href="/libro/lista"
                       target="_self"
                       class="menu-link">
                 <i class="menu-icon tf-icons ri-book-2-fill"></i>
                 <div data-i18n="Roles">Libros</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a
+                      href="/autor/lista"
+                      target="_self"
+                      class="menu-link">
+                <i class="menu-icon tf-icons ri-pen-nib-fill"></i>
+                <div data-i18n="Roles">Autores</div>
               </a>
             </li>
 
@@ -762,7 +771,7 @@
 						<div class="container-fluid flex-grow-1 container-p-y">
 					
 						<!-- Layout Demo -->
-						<div layout:fragment="espaciocontenidohtml">  </div>
+						<div th:layout:fragment="espaciocontenidohtml">  </div>
 						<!--/ Layout Demo -->
 					</div>
             <!-- / Content -->
@@ -826,19 +835,19 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/node-waves/node-waves.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
+    <script src="/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/assets/vendor/js/menu.js"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <!-- Page JS -->
 

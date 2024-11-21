@@ -35,12 +35,12 @@
 								<small class="text-body float-end">Default label</small>
 							</div>
 							<div class="card-body">
-								<form th:action="@{/guardarRol}" th:object="${nuevoRol}"
+								<form th:action="@{/rol/guardarRol}" th:object="${nuevoRol}"
 									method="post">
 									<div class="form-floating form-floating-outline mb-6">
 										<input th:field="*{nombreRol}" type="text" class="form-control"
 											id="nombre" placeholder="John Doe" /> <label
-											for="basic-default-fullname">Nombre</label>
+											for="nombre">Nombre</label>
 									</div>
 
 									<input type="hidden" th:field="*{idRol}">

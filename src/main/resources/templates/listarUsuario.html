@@ -15,7 +15,7 @@
 		<div class="container-fluid flex-grow-1 container-p-y">
 			<!-- Layout Demo -->
 			<div>
-				<a th:href="@{/nuevoUsuario}" class="btn btn-outline-primary"><i
+				<a th:href="@{/usuario/nuevoUsuario}" class="btn btn-outline-primary"><i
 					class="fa fa-plus"></i>Agregar Nuevo Usuario</a>
 			</div>
 			<div class="card">
@@ -43,10 +43,10 @@
 								<td th:text="${usuario.telefono}"></td>
 								<td>
 									<!-- Enlace para modificar --> 
-									<a th:href="@{/editar/}+${usuario.idUsuario}"
+									<a th:href="@{/usuario/editar/{id}(id=${usuario.idUsuario})}"
 									class="btn btn-outline-success btn-sm"> Modificar </a> 
 									<!-- Enlace para eliminar -->
-									<a th:href="@{/eliminar/}+${usuario.idUsuario}"
+									<a th:href="@{/usuario/eliminar/{id}(id=${usuario.idUsuario})}"
 									class="btn btn-outline-danger btn-sm"> Eliminar </a>
 								</td>
 							</tr>

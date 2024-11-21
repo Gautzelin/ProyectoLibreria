@@ -35,23 +35,23 @@
                             <small class="text-body float-end">Default label</small>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/guardarAutor}" th:object="${nuevoAutor}"
+                            <form th:action="@{/autor/guardarAutor}" th:object="${nuevoAutor}"
                                   method="post">
                                 <div class="form-floating form-floating-outline mb-6">
                                     <input th:field="*{nombre}" type="text" class="form-control"
                                            id="nombre" placeholder="John Doe" /> <label
-                                        for="basic-default-fullname">Nombre</label>
+                                        for="nombre">Nombre</label>
                                 </div>
                                 <div class="form-floating form-floating-outline mb-6">
                                     <input th:field="*{apellido}" type="text" class="form-control"
                                            id="apellido" placeholder="John Doe" /> <label
-                                        for="basic-default-fullname">Apellido</label>
+                                        for="apellido">Apellido</label>
                                 </div>
 
                                 <div class="form-floating form-floating-outline mb-6">
                                     <input th:field="*{nacionalidad}" type="text" class="form-control"
                                            id="nacionalidad" placeholder="John Doe" /> <label
-                                        for="basic-default-fullname">Nacionalidad</label>
+                                        for="nacionalidad">Nacionalidad</label>
                                 </div>
 
                                 <input type="hidden" th:field="*{id}">
