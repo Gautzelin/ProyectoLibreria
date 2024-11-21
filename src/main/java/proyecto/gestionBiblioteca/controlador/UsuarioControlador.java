@@ -63,20 +63,4 @@ public class UsuarioControlador {
         model.addAttribute("credenciales", new Usuario()); // Objeto para enlazar datos del formulario
         return "login";
     }
-
-    @PostMapping("/login")
-    public String procesarLogin(@ModelAttribute("credenciales") Usuario credenciales, Model model) {
-        Usuario usuario = servicioUsuario.validarCredenciales(credenciales.getEmail(), credenciales.getPassword());
-
-        if (usuario != null) {
-            // Login exitoso
-            return "redirect:/lista"; // Redirige a la página principal
-        } else {
-            // Credenciales incorrectas
-            model.addAttribute("error", "Usuario o contraseña incorrectos");
-            return "login";
-        }
-    }
-	
-
 }
