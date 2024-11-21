@@ -11,5 +11,5 @@ public interface IAlquilerServicio {
 	public void actualizarAlquiler(Alquiler nuevoAlquiler);
 	public void eliminarAlquiler(int id);
 	public List<Alquiler> listarAlquiler();
-
+    public Object buscarId(int id);
 }

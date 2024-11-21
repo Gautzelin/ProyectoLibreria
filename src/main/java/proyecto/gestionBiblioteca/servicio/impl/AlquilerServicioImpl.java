@@ -63,4 +63,9 @@ public class AlquilerServicioImpl implements IAlquilerServicio{
 		return null;
 	}
 
+	@Override
+	public Object buscarId(int id) {
+		return repositorioAlquiler.findById(id).get();
+	}
+
 }
