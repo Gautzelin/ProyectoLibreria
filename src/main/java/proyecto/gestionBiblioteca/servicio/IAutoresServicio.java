@@ -11,5 +11,5 @@ public interface IAutoresServicio {
 	public void actualizarAutores(Autores nuevoAutores);
 	public void eliminarAutores(int id);
 	public List<Autores> listarAutores();
-
+    public Object bucarId(int id);
 }
