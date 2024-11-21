@@ -63,4 +63,9 @@ public class EjemplarServicioImpl implements IEjemplarServicio{
 		return null;
 	}
 
+	@Override
+	public Object buscarId(int id) {
+		return repositorioEjemplar.findById(id).get();
+	}
+
 }

@@ -21,8 +21,8 @@ public class Ejemplar implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int numeroLibro;
-	private boolean estadoLibro;
+	private int numeroEjemplar;
+	private boolean estadoEjemplar;
 	
 	@ManyToOne
 	@JoinColumn(name = "fkLibros")

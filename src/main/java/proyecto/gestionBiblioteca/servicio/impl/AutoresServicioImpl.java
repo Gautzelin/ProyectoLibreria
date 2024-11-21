@@ -64,4 +64,9 @@ public class AutoresServicioImpl implements IAutoresServicio{
 		return null;
 	}
 
+	@Override
+	public Object bucarId(int id) {
+		return repositorioAutor.findById(id).get();
+	}
+
 }

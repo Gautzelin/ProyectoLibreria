@@ -11,5 +11,5 @@ public interface IEjemplarServicio {
 	public void actualizarEjemplar(Ejemplar nuevoEjemplar);
 	public void eliminarEjemplar(int id);
 	public List<Ejemplar> listarEjemplar();
-
+    public Object buscarId(int id);
 }
