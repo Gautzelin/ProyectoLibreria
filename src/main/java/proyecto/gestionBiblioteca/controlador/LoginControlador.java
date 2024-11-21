@@ -23,7 +23,7 @@ public class LoginControlador {
     @GetMapping("/nuevoUsuario")
     public String nuevoUsuario(Model model) {
         model.addAttribute("nuevoUsuario", new Usuario());
-        return "nuevoUsuario";
+        return "registrarUsuario";
     }
 
     // Guardar usuario
