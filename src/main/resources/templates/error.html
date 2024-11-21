@@ -1,0 +1,57 @@
+<!doctype html>
+
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Plantilla/Plantilla}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+    <title>Fluid - Layouts | Materio - Bootstrap Material Design
+        Admin Template</title>
+
+    <meta name="description" content=""/>
+
+
+</head>
+
+<body>
+<div layout:fragment="espaciocontenidohtml">
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+        <!-- Content -->
+
+        <div class="container-fluid flex-grow-1 container-p-y">
+            <!--Basic Layout -->
+            <div class="row">
+                <div class="col-xl">
+                    <div class="card mb-6">
+                        <div
+                                class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Ha ocurrido un error...</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="h3" th:text="${errorMessage}">hola</div>
+                            <div class="row text-center">
+                                <img
+                                        class="mx-auto d-block"
+                                        src="/assets/img/errors/error.png"
+                                        alt="error image"
+                                        style="height: 400px; width: auto"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Layout Demo -->
+                </div>
+                <!-- / Content -->
+
+                <!--/ Layout Demo -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
