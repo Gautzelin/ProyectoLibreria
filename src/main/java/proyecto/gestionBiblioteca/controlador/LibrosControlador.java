@@ -5,23 +5,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import proyecto.gestionBiblioteca.modelo.Libros;
+import proyecto.gestionBiblioteca.servicio.IAutoresServicio;
 import proyecto.gestionBiblioteca.servicio.ILibrosServicio;
 
 @Controller
+@RequestMapping(value = "/libro")
 public class LibrosControlador {
 	
 	@Autowired
 	private ILibrosServicio servicioLibro;
+    @Autowired
+	private IAutoresServicio autoresServicio;
 	private List<Libros> listaResultado;
 	
     // Mostrar todos los libros
-	@GetMapping("/libros")
+	@GetMapping("/lista")
     public String listarLibros(Model model) {
         listaResultado = servicioLibro.listarLibros();
         model.addAttribute("Lista", listaResultado);
@@ -32,6 +33,7 @@ public class LibrosControlador {
     @GetMapping("/nuevoLibro")
     public String nuevoLibro(Model model) {
         model.addAttribute("nuevoLibro", new Libros());
+        model.addAttribute("generos", new Libros());
         return "nuevoLibro"; // Nombre del archivo HTML para agregar un nuevo libro
     }
 
@@ -39,7 +41,7 @@ public class LibrosControlador {
     @PostMapping("/guardarLibro")
     public String guardarLibro(@ModelAttribute("nuevo") Libros nuevoLibro) {
         servicioLibro.insertarLibros(nuevoLibro);
-        return "redirect:/libros";
+        return "redirect:/libro/lista";
     }
 
     // editar un libro
@@ -55,7 +57,7 @@ public class LibrosControlador {
     @GetMapping("/eliminarLibro/{id}")
     public String eliminarLibros(@PathVariable(value="id") int id) {
         servicioLibro.eliminarLibros(id);
-        return "redirect:/libros";
+        return "redirect:/libro/lista";
     }
 
 }

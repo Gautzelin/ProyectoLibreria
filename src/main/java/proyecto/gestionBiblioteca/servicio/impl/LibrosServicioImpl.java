@@ -63,7 +63,7 @@ public class LibrosServicioImpl implements ILibrosServicio{
 	}
 
 	@Override
-	public Object buscarId(int id) {
+	public Libros buscarId(int id) {
 		// TODO Auto-generated method stub
 		return repositorioLibros.findById(id).get();
 	}
