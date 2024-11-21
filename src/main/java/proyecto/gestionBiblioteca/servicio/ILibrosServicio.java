@@ -10,6 +10,6 @@ public interface ILibrosServicio {
 	public void actualizarLibros(Libros nuevoLibro);
 	public void eliminarLibros(int id);
 	public List<Libros> listarLibros();
-	public Object buscarId(int id);
+	public Libros buscarId(int id);
 
 }
