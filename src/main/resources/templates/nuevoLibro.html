@@ -35,17 +35,17 @@
 								<small class="text-body float-end">Default label</small>
 							</div>
 							<div class="card-body">
-								<form th:action="@{/guardarLibro}" th:object="${nuevoLibro}"
+								<form th:action="@{/libro/guardarLibro}" th:object="${nuevoLibro}"
 									method="post">
 									<div class="form-floating form-floating-outline mb-6">
 										<input th:field="*{tituloLibro}" type="text" class="form-control"
 											id="tituloLibro" placeholder="John Doe" /> <label
-											for="basic-default-fullname">Titulo Libro</label>
+											for="tituloLibro">Titulo Libro</label>
 									</div>
 									<div class="form-floating form-floating-outline mb-6">
 										<input th:field="*{generoLibro}" type="text" class="form-control"
 											id="generoLibro" placeholder="John Doe" /> <label
-											for="basic-default-fullname">Genero Libro</label>
+											for="generoLibro">Genero Libro</label>
 									</div>
 									<div class="form-floating form-floating-outline mb-6">
 										<input th:field="*{anioPublicacion}" type="text"
@@ -53,7 +53,6 @@
 											placeholder="ACME Inc." /> <label
 											for="basic-default-company">Año Publicación</label>
 									</div>
-
 
 									<input type="hidden" th:field="*{id}">
 									<!--<div class="form-floating form-floating-outline mb-6">
@@ -73,5 +72,7 @@
 					<!--/ Layout Demo -->
 				</div>
 			</div>
+		</div>
+	</div>
 </body>
 </html>

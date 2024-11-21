@@ -14,7 +14,7 @@
     <div class="container-fluid flex-grow-1 container-p-y">
         <!-- Botón para agregar un nuevo libro -->
         <div>
-            <a th:href="@{/nuevoEjemplar}" class="btn btn-outline-primary">
+            <a th:href="@{/ejemplar/nuevoEjemplar}" class="btn btn-outline-primary">
                 <i class="fa fa-plus"></i> Agregar Nuevo Ejemplar
             </a>
         </div>
@@ -37,11 +37,13 @@
                         <td th:text="${ejemplar.estadoEjemplar}"></td>
                         <td>
                             <!-- Enlace para editar -->
-                            <a th:href="@{/editarEjemplar/}+${ejemplar.id}" class="btn btn-outline-success btn-sm">
+                            <a th:href="@{/ejemplar//editarEjemplar/{id}(id=${ejemplar.id})}"
+                               class="btn btn-outline-success btn-sm">
                                 Editar
                             </a>
                             <!-- Enlace para eliminar -->
-                            <a th:href="@{/eliminarEjemplar/}+${ejemplar.id}" class="btn btn-outline-danger btn-sm">
+                            <a th:href="@{/ejemplar//eliminarEjemplar/{id}(id=${ejemplar.id})}"
+                               class="btn btn-outline-danger btn-sm">
                                 Eliminar
                             </a>
                         </td>

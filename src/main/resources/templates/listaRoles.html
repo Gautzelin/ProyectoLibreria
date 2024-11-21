@@ -21,7 +21,7 @@
 		<div class="container-fluid flex-grow-1 container-p-y">
 			<!-- Layout Demo -->
 			<div>
-				<a th:href="@{/nuevoRol}" class="btn btn-outline-primary"><i
+				<a th:href="@{/rol/nuevoRol}" class="btn btn-outline-primary"><i
 					class="fa fa-plus"></i>Agregar Nuevo Libro</a>
 			</div>
 			<div class="card">
@@ -40,10 +40,11 @@
 								<td th:text="${roles.nombreRol}"></td>
 								<td>
 									<!-- Enlace para modificar --> 
-									<a th:href="@{/editarRol/}+${roles.idRol}"
-									class="btn btn-outline-success btn-sm"> Modificar </a> 
+<!--									<a th:href="@{/rol/editarRol/}+${roles.idRol}"-->
+									<a th:href="@{/rol/editarRol/{id}(id=${roles.id})}"
+									class="btn btn-outline-success btn-sm"> Modificar </a>
 									<!-- Enlace para eliminar -->
-									<a th:href="@{/eliminarRol/}+${roles.idRol}"
+									<a th:href="@{/rol/eliminarRol/{id}(id=${roles.id})}"
 									class="btn btn-outline-danger btn-sm"> Eliminar </a>
 								</td>
 							</tr>
