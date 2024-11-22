@@ -1,96 +1,172 @@
-
-<!doctype html>
-
-
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{Plantilla/Plantilla}">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d4f7d4; /* Fondo verde claro */
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
 
-<title>Nuevo Usuario</title>
+        /* Fondo decorativo con círculos */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
 
-<meta name="description" content="" />
+        .circle-1 {
+            background-color: #ff7979;
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 15%;
+        }
 
+        .circle-2 {
+            background-color: #f6e58d;
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            right: 10%;
+        }
 
+        .circle-3 {
+            background-color: #7ed6df;
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 25%;
+        }
+
+        .circle-4 {
+            background-color: #badc58;
+            width: 250px;
+            height: 250px;
+            bottom: 10%;
+            left: 5%;
+        }
+
+        /* Contenedor del formulario */
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 80px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        /* Estilos de los inputs */
+        input[type="email"], input[type="password"], input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Botón */
+        button {
+            background-color: #27ae60;
+            color: #ffffff;
+            border: none;
+            padding: 10px 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #219150;
+        }
+
+        /* Mensaje de error */
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-
 <body>
-	<div layout:fragment="espaciocontenidohtml">
-		<!-- Content wrapper -->
-		<div class="content-wrapper">
-			<!-- Content -->
+<!-- Círculos decorativos -->
+<div class="circle circle-1"></div>
+<div class="circle circle-2"></div>
+<div class="circle circle-3"></div>
+<div class="circle circle-4"></div>
 
-			<div class="container-fluid flex-grow-1 container-p-y">
-				<!--Basic Layout -->
-				<div class="row">
-					<div class="col-xl">
-						<div class="card mb-6">
-							<div
-								class="card-header d-flex justify-content-between align-items-center">
-								<h5 class="mb-0">Registro de Usuario</h5>
-<!--								<small class="text-body float-end">Default label</small>-->
-							</div>
-							<div class="card-body">
-								<form th:action="@{/guardarUsuario}" th:object="${nuevoUsuario}"
-									method="post">
-									<div class="form-floating form-floating-outline mb-6">
-										<input th:field="*{nombre}" type="text" class="form-control"
-											id="name" placeholder="John Doe" /> <label
-											for="name">Nombre</label>
-									</div>
-									<div class="form-floating form-floating-outline mb-6">
-										<input th:field="*{apellido}" type="text" class="form-control"
-											id="lastName" placeholder="John Doe" /> <label
-											for="lastName">Apellido</label>
-									</div>
-									<div class="form-floating form-floating-outline mb-6">
-										<input th:field="*{direccion}" type="text"
-											class="form-control" id="address"
-											placeholder="ACME Inc." /> <label
-											for="address">Direccion</label>
-									</div>
-									<div class="mb-6">
-										<div class="input-group input-group-merge">
-											<div class="form-floating form-floating-outline">
-												<input th:field="*{email}" type="text"
-													id="email" class="form-control"
-													placeholder="john.doe" aria-label="john.doe"
-													aria-describedby="email" /> <label
-													for="email">Email</label>
-											</div>
-<!--											<span class="input-group-text" id="basic-default-email2">@example.com</span>-->
-										</div>
-									</div>
-									<div class="form-floating form-floating-outline mb-6">
-										<input th:field="*{password}" type="password"
-											class="form-control" id="password"
-											   name="password"
-											placeholder="ACME Inc." /> <label
-											for="password">Contraseña</label>
-									</div>
-									<div class="form-floating form-floating-outline mb-6">
-										<input th:field="*{telefono}" type="number"
-											id="phone" class="form-control phone-mask"
-											placeholder="658 799 8941" /> <label
-											for="phone">Telefono</label>
-									</div>
-									<input type="hidden" th:field="*{idUsuario}">
+<div class="login-container">
+    <h2>Registrar Usuario</h2>
+    <form th:action="@{/guardarUsuario}" th:object="${nuevoUsuario}"
+          method="post">
+        <div class="">
+            <input th:field="*{nombre}" type="text" class="form-control"
+                   id="name" placeholder="Ingrese su nombre"}
+                   required
+            />
+        </div>
+        <div class="">
+            <input th:field="*{apellido}" type="text" class="form-control"
+                   id="lastName" placeholder="Ingrese su apellido"
+                   required
+            />
+        <div class="">
+            <input th:field="*{direccion}" type="text"
+                   class="form-control" id="address"
+                   placeholder="Ingrese su dirección"
+                   required
+            />
+        </div>
+        <div class="">
+            <input th:field="*{email}" type="text"
+                   id="email"
+                   class="form-control"
+                   placeholder="Ingrese su correo" aria-label="john.doe"
+                   aria-describedby="email"
+                   required
+            />
+        </div>
+            <div class="">
+            <input th:field="*{password}" type="password"
+                   class="form-control" id="password"
+                   name="password"
+                   placeholder="Ingrese su contraseña"
+                   required
+            />
+        </div>
+        <div class="">
+            <input th:field="*{telefono}" type="number"
+                   id="phone" class="form-control phone-mask"
+                   placeholder="Ingrese su número de teléfono"
+                   required
+            />
+        </div>
+        <input type="hidden" th:field="*{idUsuario}">
 
-									<button type="submit" class="btn btn-primary">Send</button>
-								</form>
-							</div>
-						</div>
-						<!--/ Layout Demo -->
-					</div>
-					<!-- / Content -->
+        <button type="submit" class="btn btn-primary">
+            Registrarme
+        </button>
+    </form>
 
-					<!--/ Layout Demo -->
-				</div>
-			</div>
-		</div>
-	</div>
+</div>
 </body>
 </html>
