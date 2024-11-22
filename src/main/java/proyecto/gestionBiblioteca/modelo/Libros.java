@@ -2,11 +2,10 @@ package proyecto.gestionBiblioteca.modelo;
 
 import java.io.Serializable;
 import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 
@@ -24,6 +23,13 @@ public class Libros implements Serializable{
 	private String tituloLibro;
 	private String generoLibro;
 	private Year anioPublicacion;
-	
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(
+			name = "libros_autores",
+			joinColumns = @JoinColumn(name= "fkLibros", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "fkAutor", referencedColumnName = "id")
+	)
+	private List<Autores> autores = new ArrayList<>();
 
 }

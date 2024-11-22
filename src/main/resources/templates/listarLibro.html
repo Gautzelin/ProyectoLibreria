@@ -44,6 +44,9 @@
                                 <a th:href="@{/libro/editarLibro/{id}(id=${libro.id})}" class="btn btn-outline-success btn-sm">
                                     Editar
                                 </a>
+                                <a th:href="@{/libro/agregarAutores/{id}(id=${libro.id})}" class="btn btn-outline-success btn-sm">
+                                    Agregar Autores
+                                </a>
                                 <!-- Enlace para eliminar -->
                                 <a th:href="@{/libro/eliminarLibro/{id}(id=${libro.id})}" class="btn btn-outline-danger btn-sm">
                                     Eliminar

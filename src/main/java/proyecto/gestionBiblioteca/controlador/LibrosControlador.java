@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.servlet.ModelAndView;
+import proyecto.gestionBiblioteca.modelo.Autores;
 import proyecto.gestionBiblioteca.modelo.Libros;
 import proyecto.gestionBiblioteca.servicio.IAutoresServicio;
 import proyecto.gestionBiblioteca.servicio.ILibrosServicio;
@@ -33,7 +35,7 @@ public class LibrosControlador {
     @GetMapping("/nuevoLibro")
     public String nuevoLibro(Model model) {
         model.addAttribute("nuevoLibro", new Libros());
-        model.addAttribute("generos", new Libros());
+        model.addAttribute("autores",autoresServicio.listarAutores());
         return "nuevoLibro"; // Nombre del archivo HTML para agregar un nuevo libro
     }
 
@@ -47,11 +49,10 @@ public class LibrosControlador {
     // editar un libro
     @GetMapping("/editarLibro/{id}")
     public String actualizarLibros(Model model, @PathVariable(value="id") int id) {
-        
         model.addAttribute("nuevoLibro", servicioLibro.buscarId(id));
+        model.addAttribute("autores",autoresServicio.listarAutores());
         return "nuevoLibro"; // Nombre del archivo HTML para editar un libro
     }
-
 
     // Eliminar un libro
     @GetMapping("/eliminarLibro/{id}")
@@ -59,5 +60,4 @@ public class LibrosControlador {
         servicioLibro.eliminarLibros(id);
         return "redirect:/libro/lista";
     }
-
 }

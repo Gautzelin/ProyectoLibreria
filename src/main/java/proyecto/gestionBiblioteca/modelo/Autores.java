@@ -26,13 +26,4 @@ public class Autores implements Serializable{
 	private String nombre;
 	private String apellido;
 	private String nacionalidad;
-	
-	@ManyToMany
-	@JoinTable(
-			name = "autores_libros",
-			joinColumns = @JoinColumn(name= "fkAutor", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "fkLibros", referencedColumnName = "id")
-			)
-	private List<Libros> listaLibros = new ArrayList<>();
-	
 }
